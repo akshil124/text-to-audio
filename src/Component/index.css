@@ -1,0 +1,219 @@
+.voices-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background-repeat: no-repeat;
+    padding: 23px;
+}
+
+audio {
+    width: 100%;
+    outline: none;
+    margin-top: 16px;
+}
+.voice-card:hover {
+    box-shadow: #777777;
+}
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    color: #908f90;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(35,33,35);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 0;
+}
+body{
+    height: 100vh;
+    background: rgb(35,33,35);
+}
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #908f90;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+/* Show the modal when active */
+.modal.active {
+    display: block;
+}
+.card-container {
+    width:300px;
+
+}
+.card-front:hover{
+    box-shadow: rgba(139, 139, 139, 0.1) 0px 8px 24px, rgba(131, 131, 131, 0.1) 0px 16px 56px, rgba(130, 130, 130, 0.1) 0px 24px 80px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+    background-color: #908f90;
+    color: #908f90;
+}
+
+.card-front {
+    color: #908f90;
+    background-color: #363537;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    transition:0.5s all;
+}
+label{
+    font-weight: bold;
+
+}
+.user-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    filter: brightness(0.7);
+}
+.user-profile{
+    border-radius: 10px;
+    background: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-name {
+    margin-top: 10px;
+    text-align: center;
+}
+.user-details p {
+    font-weight: bold;
+}
+
+*{
+    box-sizing: border-box;
+}
+.mainContainer{
+    margin:0px 20px;
+    width:100%;
+
+}
+.containers{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+h2.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.Card {
+    padding: 1px;
+    overflow: hidden;
+    margin:0px auto;
+    border-radius: 15px;
+    width: 640px;
+}
+@media screen and (max-width: 640px) {
+    .Card{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .Card{
+       margin:0
+    }
+}
+.CardInner {
+    padding: 16px 16px;
+    background-color: rgb(57,56,57);
+}
+
+.container {
+    display: flex;
+}
+
+.Icon {
+    min-width: 46px;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+svg {
+    transform: translate(-1px, -1px);
+}
+
+label {
+    display: block;
+    color: #e5e4e5;
+    margin-bottom: 12px;
+}
+
+.InputContainer {
+    width: 100%;
+}
+
+input {
+    background-color: rgb(57,56,57);
+    padding: 16px 32px;
+    border: none;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    outline: none;
+    color: #e5e4e5;
+    -webkit-appearance: none;
+    transition: all 240ms ease-out;
+    width: 100%;
+
+}
+
+.InputContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+
