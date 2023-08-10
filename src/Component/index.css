@@ -22,7 +22,7 @@ audio {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    /*background-color: white;*/
 }
 
 .modal-content {
@@ -31,14 +31,25 @@ audio {
     color: #908f90;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgb(35,33,35);
+    background: #fafcfc;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    max-width: 700px;
     width: 90%;
 }
-
+.title-content{
+    display: flex;
+    justify-content: space-between;
+    margin:10px
+}
+.card-name{
+    color:#6f7082 ;
+}
+.error-msg{
+    color:red;
+    font-size: 14px;
+}
 .close-btn {
     position: absolute;
     top: 10px;
@@ -56,21 +67,33 @@ body{
 }
 input {
     width: 100%;
-    padding: 8px;
+    padding: 8px 4px;
+
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
+.modal-input{
+    color:black;
+    background: #fafcfc;
+    font-size:14px;
+    font-weight: normal;
+    width: 100% !important;
+    min-height: 200px;
+    border:1px solid black;
+    border-radius: 5px;
+    padding:15px;
+}
 .submit-btn {
     display: block;
     width: 100%;
     padding: 10px;
-    background: #908f90;
-    color: #fff;
+    background: black;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s all;
+    margin-bottom: 20px;
 }
 
 .submit-btn:hover {
@@ -89,12 +112,35 @@ input {
     box-shadow: rgba(139, 139, 139, 0.1) 0px 8px 24px, rgba(131, 131, 131, 0.1) 0px 16px 56px, rgba(130, 130, 130, 0.1) 0px 24px 80px;
 }
 
-audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
-    background-color: #908f90;
+    background-color: #fafcfc;
     color: #908f90;
 }
+audio::-webkit-media-controls-play-button{
+    background-color: #96949f;
+    border-radius: 50%;
+    color: white;
+}
+audio::-webkit-media-controls-timeline{
+    color: #312b41;
+    /*background:#312b41 ;*/
+}
 
+.audio-container{
+    display: flex;
+    align-items: center;
+    border-top: 3px solid #ebeef2;
+}
+
+.refreshIcons{
+    width: 20px;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+.downloadIcons{
+    width: 20px;
+    margin-top: 15px;
+}
 .card-front {
     color: #908f90;
     background-color: #363537;
@@ -107,7 +153,6 @@ audio::-webkit-media-controls-panel {
 }
 label{
     font-weight: bold;
-
 }
 .user-profile img {
     width: 150px;
@@ -129,14 +174,12 @@ label{
 .user-details p {
     font-weight: bold;
 }
-
 *{
     box-sizing: border-box;
 }
 .mainContainer{
-    margin:0px 20px;
+    margin:0 20px;
     width:100%;
-
 }
 .containers{
     display: flex;
@@ -152,7 +195,7 @@ h2.name {
 .Card {
     padding: 1px;
     overflow: hidden;
-    margin:0px auto;
+    margin:0 auto;
     border-radius: 15px;
     width: 640px;
 }
@@ -208,7 +251,20 @@ input {
     -webkit-appearance: none;
     transition: all 240ms ease-out;
     width: 100%;
+}
 
+textarea {
+    background-color: rgb(57,56,57);
+    padding: 16px 32px;
+    border: none;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    outline: none;
+    color: #e5e4e5;
+    -webkit-appearance: none;
+    transition: all 240ms ease-out;
+    width: 100%;
 }
 
 .InputContainer {

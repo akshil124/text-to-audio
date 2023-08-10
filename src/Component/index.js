@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "../Component/index.css";
-
+import downloadIcons from "../Icons/icons8-download-64.png"
+import refreshIcons from "../Icons/icons8-refresh-30 (1).png"
 const Blog = () => {
   const [allVoices, setAllVoices] = useState([]);
   const [text, setText] = useState('')
-  const [open, setOpen] = useState({show: false, voiceId: null})
+  const [open, setOpen] = useState({show: false, voiceId: null,name:null})
   const [file, setFile] = useState()
-  const [search ,setSearch] = useState('')
+  const [search ,setSearch] = useState('');
+  const [error, setError] = useState()
   useEffect(() => {
     fetch("https://demo-api-kappa.vercel.app/api/voices")
       .then(response => response.json())
@@ -18,41 +20,59 @@ const Blog = () => {
   const handleChange = (e) => {
     let {value} = e.target;
     setText(value)
+    setFile()
   }
   const handleSubmit = async (voiceId) => {
-    try {
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: text,
-          voice_id: voiceId,
-        }),
-      };
-      const response = await fetch('https://demo-api-kappa.vercel.app/api/speech', requestOptions);
-      const audioData = await response.arrayBuffer();
-      const audioBlob = new Blob([audioData], {type: 'audio/mpeg'});
-      const url = URL.createObjectURL(audioBlob);
-      setText('')
-      setFile(url);
-    } catch (error) {
-      console.error('Error fetching audio data:', error);
-    }
+   if(text.length < 333){
+     try {
+       const requestOptions = {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+           text: text,
+           voice_id: voiceId,
+         }),
+       };
+       const response = await fetch('https://demo-api-kappa.vercel.app/api/speech', requestOptions);
+       const audioData = await response.arrayBuffer();
+       const audioBlob = new Blob([audioData], {type: 'audio/mpeg'});
+       const url = URL.createObjectURL(audioBlob);
+       setFile(url);
+       setError();
+     } catch (error) {
+       console.error('Error fetching audio data:', error);
+     }
+   }
+   else{
+     setError('333 character limit per search')
+   }
+  };
+  const handleReplay=()=>{
+    const replay = document.getElementById('audioSource');
+    replay.currentTime = 0;
+    replay.play();
   };
   const Modal = () => {
     return (<div className="modal">
       <div className="modal-content">
-        <span className="close-btn" onClick={() => {setOpen({show: !open.show, voiceId: null}); setFile("")}}>&times;</span>
-        <h2>Modal Title</h2>
-        <input type="text" placeholder="Something" onChange={(e) => handleChange(e)}/>
+        <span className="close-btn" onClick={() => {setOpen({show: !open.show, voiceId: null,name:null}); setFile("");setText('')} }>&times;</span>
+        <h2>Get your text cover</h2>
+        <textarea  placeholder="Something" value={text} className='modal-input' onChange={(e)=>handleChange(e)}></textarea>
+        {error && <dvi className='error-msg'>{error}</dvi>}
+        <div className='title-content'>
+          <div className="card-name">-{open?.name}</div>
+          <div className='message-length'>{text.length}/333</div>
+        </div>
         <button className="submit-btn" onClick={() => handleSubmit(open?.voiceId)}>Submit</button>
-        {file ? <audio controls id='audioSource' src={file}/>
+        {(text && file) ? <div className='audio-container'><audio controls id='audioSource' src={file} controlsList="nodownload noplaybackrate " />
+            <img src={refreshIcons} className='refreshIcons' onClick={()=>handleReplay()}/>
+              <a download={`${open?.name}.mp3`} href={file} ><img src={downloadIcons} className='downloadIcons'/></a></div>
           : null}
       </div>
     </div>)
-  }
+  };
   return (
 <div className="containers">
   <div className="Card">
@@ -82,7 +102,7 @@ const Blog = () => {
         }
       }).map((ele, index) => (<>
           <div className="card-container">
-                <div className="card-front" key={index} onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id})}>
+                <div className="card-front" key={index} onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id, name:ele?.name})}>
                   <div className="user-profile">
                     <img src={ele?.avatar} alt="Profile Picture"/>
                   </div>
