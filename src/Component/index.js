@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "../Component/index.css";
-import downloadIcons from "../Icons/icons8-download-64.png"
-import refreshIcons from "../Icons/icons8-refresh-30 (1).png"
+import downloadIcons from "../Icons/icons8-download-64.png";
+import refreshIcons from "../Icons/icons8-refresh-30 (1).png";
 const Blog = () => {
   const [allVoices, setAllVoices] = useState([]);
   const [text, setText] = useState('')
   const [open, setOpen] = useState({show: false, voiceId: null,name:null})
-  const [file, setFile] = useState()
+  const [file, setFile] = useState();
   const [search ,setSearch] = useState('');
-  const [error, setError] = useState()
+  const [error, setError] = useState();
   useEffect(() => {
-    fetch("https://demo-api-kappa.vercel.app/api/voices")
+    fetch(process.env.REACT_APP_BASE_URL+"/api/voices")
       .then(response => response.json())
       .then(response => {
         setAllVoices(response.voices);
@@ -35,7 +35,7 @@ const Blog = () => {
            voice_id: voiceId,
          }),
        };
-       const response = await fetch('https://demo-api-kappa.vercel.app/api/speech', requestOptions);
+       const response = await fetch(process.env.REACT_APP_BASE_URL+'/api/speech', requestOptions);
        const audioData = await response.arrayBuffer();
        const audioBlob = new Blob([audioData], {type: 'audio/mpeg'});
        const url = URL.createObjectURL(audioBlob);
@@ -118,6 +118,5 @@ const Blog = () => {
         </>
       ))}</div>
 </div>)
-
 };
 export default Blog;
