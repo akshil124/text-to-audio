@@ -3,6 +3,9 @@ import axios from "axios";
 import "../Component/index.css";
 import downloadIcons from "../Icons/icons8-download-64.png";
 import refreshIcons from "../Icons/icons8-refresh-30 (1).png";
+import fAvatar from "../Icons/f_avatar.jpg";
+import mAvatar from "../Icons/m_avatar.jpg";
+
 const Blog = () => {
   const [allVoices, setAllVoices] = useState([]);
   const [text, setText] = useState('')
@@ -11,7 +14,7 @@ const Blog = () => {
   const [search ,setSearch] = useState('');
   const [error, setError] = useState();
   useEffect(() => {
-    fetch(process.env.REACT_APP_BASE_URL+"/api/voices")
+    fetch(process.env.REACT_APP_BASE_URL+"/voices")
       .then(response => response.json())
       .then(response => {
         setAllVoices(response.voices);
@@ -32,10 +35,10 @@ const Blog = () => {
          },
          body: JSON.stringify({
            text: text,
-           voice_id: voiceId,
+           model_id: "v1"
          }),
        };
-       const response = await fetch(process.env.REACT_APP_BASE_URL+'/api/speech', requestOptions);
+       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/text-to-speech/${voiceId}/stream`, requestOptions);
        const audioData = await response.arrayBuffer();
        const audioBlob = new Blob([audioData], {type: 'audio/mpeg'});
        const url = URL.createObjectURL(audioBlob);
@@ -59,7 +62,7 @@ const Blog = () => {
       <div className="modal-content">
         <span className="close-btn" onClick={() => {setOpen({show: !open.show, voiceId: null,name:null}); setFile("");setText('')} }>&times;</span>
         <h2>Get your text cover</h2>
-        <textarea  placeholder="Something" value={text} className='modal-input' onChange={(e)=>handleChange(e)}></textarea>
+        <textarea  placeholder="Something" value={text} className='modal-input' onChange={(e)=>handleChange(e)}/>
         {error && <dvi className='error-msg'>{error}</dvi>}
         <div className='title-content'>
           <div className="card-name">-{open?.name}</div>
@@ -104,7 +107,7 @@ const Blog = () => {
           <div className="card-container">
                 <div className="card-front" key={index} onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id, name:ele?.name})}>
                   <div className="user-profile">
-                    <img src={ele?.avatar} alt="Profile Picture"/>
+                    <img src={ele.labels.gender === "male" ? mAvatar : fAvatar} alt="Profile Picture"/>
                   </div>
                   <h2 className="name">{ele?.name}</h2>
                   <div><p className="category">Category: {ele.category}</p><p className="labels">Accent: {ele?.labels.accent}</p></div>
