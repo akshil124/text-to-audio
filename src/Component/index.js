@@ -5,7 +5,7 @@ import downloadIcons from "../Icons/icons8-download-64.png";
 import refreshIcons from "../Icons/icons8-refresh-30 (1).png";
 import fAvatar from "../Icons/f_avatar.jpg";
 import mAvatar from "../Icons/m_avatar.jpg";
-
+import {motion} from "framer-motion"
 const Blog = () => {
   const [allVoices, setAllVoices] = useState([]);
   const [text, setText] = useState('')
@@ -20,6 +20,96 @@ const Blog = () => {
         setAllVoices(response.voices);
       });
   }, []);
+
+  useEffect(()=> {
+    allVoices.length &&
+      allVoices.map((ele) => {
+          const audioPlayer = document.querySelector(`.${ele.name}`);
+          const audio = new Audio(
+            ele.preview_url
+          );
+
+          audio.addEventListener(
+            "loadeddata",
+            () => {
+              audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+                audio.duration
+              );
+              audio.volume = .75;
+            },
+            false
+          );
+
+          const timeline = audioPlayer.querySelector(".timeline");
+          timeline.addEventListener("click", e => {
+            const timelineWidth = window.getComputedStyle(timeline).width;
+            const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+            audio.currentTime = timeToSeek;
+          }, false);
+
+//click volume slider to change volume
+          const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
+          volumeSlider.addEventListener('click', e => {
+            const sliderWidth = window.getComputedStyle(volumeSlider).width;
+            const newVolume = e.offsetX / parseInt(sliderWidth);
+            audio.volume = newVolume;
+            audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
+          }, false)
+
+//check audio percentage and update time accordingly
+          setInterval(() => {
+            const progressBar = audioPlayer.querySelector(".progress");
+            progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+            audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+              audio.currentTime
+            );
+          }, 500);
+
+//toggle between playing and pausing on button click
+          const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+          playBtn.addEventListener(
+            "click",
+            () => {
+              if (audio.paused) {
+                playBtn.classList.remove("play");
+                playBtn.classList.add("pause");
+                audio.play();
+              } else {
+                playBtn.classList.remove("pause");
+                playBtn.classList.add("play");
+                audio.pause();
+              }
+            },
+            false
+          );
+
+          audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
+            const volumeEl = audioPlayer.querySelector(".volume-container .volume");
+            audio.muted = !audio.muted;
+            if (audio.muted) {
+              volumeEl.classList.remove("icono-volumeMedium");
+              volumeEl.classList.add("icono-volumeMute");
+            } else {
+              volumeEl.classList.add("icono-volumeMedium");
+              volumeEl.classList.remove("icono-volumeMute");
+            }
+          });
+
+//turn 128 seconds into 2:08
+          function getTimeCodeFromNum(num) {
+            let seconds = parseInt(num);
+            let minutes = parseInt(seconds / 60);
+            seconds -= minutes * 60;
+            const hours = parseInt(minutes / 60);
+            minutes -= hours * 60;
+
+            if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+            return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+              seconds % 60
+            ).padStart(2, 0)}`;
+          }
+        })
+  },[allVoices])
   const handleChange = (e) => {
     let {value} = e.target;
     setText(value)
@@ -76,11 +166,20 @@ const Blog = () => {
       </div>
     </div>)
   };
-  return (
+  return (<>
+    <div className="header">
+      <a href="#default" className="logo">Text to Speech</a>
+      <div className="header-right">
+        <a className="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
 <div className="containers">
-  <div className="Card">
-    <div className="CardInner">
-      <label>Search for your Voices Card</label>
+
+  {allVoices.length ? <div className="Card">
+    <motion.div initial={{ y: -100}}
+                whileInView={{ y: 0 }}  className="CardInner">
       <div className="container">
         <div className="Icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -91,11 +190,11 @@ const Blog = () => {
           </svg>
         </div>
         <div className="InputContainer">
-          <input placeholder="Search" onChange={(e)=>{setSearch(e.target.value)}}/>
+          <input placeholder="Search for your Voices Card" onChange={(e)=>{setSearch(e.target.value)}}/>
         </div>
       </div>
-    </div>
-  </div>
+    </motion.div>
+  </div> : null}
   <div className="voices-container"> {open.show && Modal()}
       {allVoices && allVoices?.filter(ele => {
         if (search) {
@@ -104,22 +203,78 @@ const Blog = () => {
           return true;
         }
       }).map((ele, index) => (<>
-          <div className="card-container">
-                <div className="card-front" key={index} onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id, name:ele?.name})}>
+          <motion.div
+            initial={{ x: index/2 ? 100 : -100}}
+            whileInView={{ x: 0 }} className="card-container">
+                <div className="card-front" key={index}>
+                  <div onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id, name:ele?.name})}><h2 className="name">{ele?.name}</h2>
                   <div className="user-profile">
                     <img src={ele.labels.gender === "male" ? mAvatar : fAvatar} alt="Profile Picture"/>
                   </div>
-                  <h2 className="name">{ele?.name}</h2>
-                  <div><p className="category">Category: {ele.category}</p><p className="labels">Accent: {ele?.labels.accent}</p></div>
-                  <audio controls>
-                    <source
-                      src={ele?.preview_url}
-                      type="audio/mpeg"/>
-                  </audio>
+                  <div className='subDetail'><p className="category">Category: {ele.category}</p><p className="labels">Accent: {ele?.labels.accent}</p></div>
+                  </div><div className={`audio-player ${ele.name}`}>
+                    <div className="timeline">
+                      <div className="progress"></div>
+                    </div>
+                    <div className="controls">
+                        <div className="play-btn"></div><div className="toggle-play play">
+                        </div>
+                      <div className="play-container">
+                      </div>
+                      <div className="time">
+                        <div className="current">0:00</div>
+                        <div className="divider">/</div>
+                        <div className="length"></div>
+                      </div>
+                      <div className="name">Music Song</div>
+                      <div className="volume-container">
+                        <div className="volume-button">
+                          <div className="volume icono-volumeMedium"></div>
+                        </div>
+
+                        <div className="volume-slider">
+                          <div className="volume-percentage"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-          </div>
+          </motion.div>
         </>
-      ))}</div>
-</div>)
+      ))}
+     </div>
+</div>
+    <footer className="footer-distributed">
+
+      <div className="footer-right">
+
+        <a href="#"><i className="fa fa-facebook"></i></a>
+        <a href="#"><i className="fa fa-twitter"></i></a>
+        <a href="#"><i className="fa fa-linkedin"></i></a>
+        <a href="#"><i className="fa fa-github"></i></a>
+
+      </div>
+
+      <div className="footer-left">
+
+        <p className="footer-links">
+          <a className="link-1" href="#">Home</a>
+
+          <a href="#">Blog</a>
+
+          <a href="#">Pricing</a>
+
+          <a href="#">About</a>
+
+          <a href="#">Faq</a>
+
+          <a href="#">Contact</a>
+        </p>
+
+        <p>Text to Speech &copy; 2015</p>
+      </div>
+
+    </footer>
+  </>)
 };
 export default Blog;
