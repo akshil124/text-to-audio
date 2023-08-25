@@ -63,6 +63,16 @@ const Blog = () => {
             audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
               audio.currentTime
             );
+
+            if(audio.currentTime / audio.duration * 100 === 100){
+              playBtn.classList.remove("pause");
+              playBtn.classList.add("play");
+              audio.pause();
+              progressBar.style.width = "0%";
+              audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+                audio.currentTime
+              );
+            }
           }, 500);
 
 //toggle between playing and pausing on button click
@@ -226,7 +236,7 @@ const Blog = () => {
                         <div className="divider">/</div>
                         <div className="length"></div>
                       </div>
-                      <div className="name">Music Song</div>
+                      <div className="name">Voice</div>
                       <div className="volume-container">
                         <div className="volume-button">
                           <div className="volume icono-volumeMedium"></div>
@@ -271,7 +281,7 @@ const Blog = () => {
           <a href="#">Contact</a>
         </p>
 
-        <p>Text to Speech &copy; 2015</p>
+        <p>&copy;  Text cover 2023 - All rights reserved.</p>
       </div>
 
     </footer>
