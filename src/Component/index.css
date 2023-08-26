@@ -759,6 +759,9 @@ section {
     .footer-distributed .footer-left p.footer-links {
         line-height: 1.8;
     }
+    .containers{
+        height: auto;
+    }
 }
 
 .footerPages{
