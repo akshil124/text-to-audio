@@ -1,0 +1,100 @@
+.card{
+    padding: 20px;
+    background: rgba(54 ,53, 55, 0.5);;
+    box-shadow: 5px 5px 10px -3px rgba(0,0,0,.3);
+    border: 1px solid #212121;
+    /*max-width: 300px;*/
+    border-radius: 10px;
+    /*margin-top: 80px;*/
+    max-width: 800px;
+}
+.about-container {
+
+    margin: 0 auto;
+    padding: 40px;
+}
+.about-section h1 {
+    font-size: 36px;
+    /*color: #908f90;*/
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.mainContainers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 74.6vh
+}
+.contactContainer{
+    flex-direction: column;
+}
+.contact-content{
+    display: flex;
+}
+.InputContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.terms-content {
+    padding: 4rem;
+}
+
+.terms-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.terms-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+
+.form-horizontal {
+    /*float: left;*/
+    max-width: 400px;
+    font-family: 'Lato';
+    font-weight: 400;
+}
+
+.form-control,
+textarea {
+    max-width: 400px;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.send-button {
+    margin-top: 15px;
+    height: 34px;
+    width: 400px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.alt-send-button {
+    width: 400px;
+    height: 34px;
+    transition: all .2s ease-in-out;
+}
+
+.send-text {
+    display: block;
+
+    margin-top: 10px;
+    font: 700 12px 'Lato', sans-serif;
+    letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+    transform: translate3d(0px, -29px, 0px);
+}
