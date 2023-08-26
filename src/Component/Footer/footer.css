@@ -57,7 +57,6 @@
 
 .form-control,
 textarea {
-    max-width: 400px;
     background-color: #000;
     color: #fff;
     letter-spacing: 1px;
@@ -143,4 +142,12 @@ textarea {
 
 .about-section{
     font-size: 40px;
+}
+@media screen and (max-width: 1100px) {
+    #contact-form{
+        width: 100%;
+    }
+    .contact-container{
+        height: auto;
+    }
 }

@@ -22,7 +22,7 @@ const navigate =  useNavigate();
         <p className="footer-links">
           <a onClick={()=>navigate('/')}>Home</a>
 
-          <a onClick={()=>navigate('/blog')}>Blog</a>
+          {/*<a onClick={()=>navigate('/blog')}>Blog</a>*/}
 
           <a onClick={()=>navigate('/pricing')}>Pricing</a>
 
