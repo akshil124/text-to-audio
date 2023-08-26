@@ -9,27 +9,31 @@ const navigate =  useNavigate();
     <footer className="footer-distributed">
 
       <div className="footer-right">
+
         <a href="#"><i className="fa fa-facebook"></i></a>
         <a href="#"><i className="fa fa-twitter"></i></a>
         <a href="#"><i className="fa fa-linkedin"></i></a>
         <a href="#"><i className="fa fa-github"></i></a>
+
       </div>
+
       <div className="footer-left">
+
         <p className="footer-links">
-          <a className="link-1" href="#">Disclaimer</a>
+          <a onClick={()=>navigate('/')}>Home</a>
 
-          <a href="#">Privacy Policy</a>
+          <a onClick={()=>navigate('/blog')}>Blog</a>
 
+          <a onClick={()=>navigate('/pricing')}>Pricing</a>
 
-          <a href="#">Pricing</a>
+          <a onClick={()=>navigate('/aboutUs')}>About</a>
 
-          <a onClick={()=>navigate('/termsAndCondition')}>Terms and Conditions</a>
+          <a onClick={()=>navigate('/faq')}>Faq</a>
 
-          <a onClick={()=>navigate('/contact')}>Contact us</a>
-
-          <div className='footerPages' onClick={()=>navigate('/aboutUS')}>About us</div>
+          <a onClick={()=>navigate('/contact')}>Contact</a>
         </p>
-        <p>Text to Speech &copy; 2015</p>
+
+        <p>&copy;  Text cover 2023 - All rights reserved.</p>
       </div>
 
     </footer>

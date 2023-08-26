@@ -1,38 +1,42 @@
-import React from "react";
+import React ,{useState} from "react";
 import "./footer.css"
 import Footer from "./footer";
 
 const Contact = () => {
+  const [user, setUser] = useState({name:'', email:'', message:''});
+  const [modal, setModal] = useState(false)
+  const handleChange = (e) =>{
+    const {name, value} = e.target;
+    setUser({...user, [name] :value})
+  }
+  const onSubmit = () =>{
+    setModal(true)
+    setUser({name:'', email:'',message:''})
+  }
+  const {name, email, message} = user;
   return (<>
-    <div className='mainContainers contactContainer'>
-      {/*<div className='card'>*/}
-      <div>
-        <h1>Contact Us</h1>
-        <div>Loerem</div>
-      </div>
-      <div className='contact-content'>
-        <div>
-          <div className="direct-contact-container">
-
-            <ul className="contact-list">
-              <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">City, State</span></i>
-              </li>
-              <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a
-                href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
-              <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a
-                href="mailto:#" title="Send me an email">hitmeup@gmail.com</a></span></i></li>
-            </ul>
+    <div className="contact-container">
+      <div className="contact-section">
+        <div className="about-container">
+          <div className="right-col">
+            <h1 className='title'>Contact Us</h1>
+            <p>Planning to visit Indonesia soon? Get insider tips on where to go, things to do and find best deals for
+              your next adventure.</p>
+            <div className='card-form'>
+            <form id="contact-form" >
+              <label htmlFor="name">Full name</label>
+              <input className='contact-input' value={name} type="text" id="name" name="name" placeholder="Your Full Name" onChange={(e)=>handleChange(e)} required />
+              <label htmlFor="email">Email Address</label>
+              <input className='contact-input' type="email" value={email} id="email" name="email" placeholder="Your Email Address" onChange={(e)=>handleChange(e)} required/>
+              <label htmlFor="message">Message</label>
+              <textarea className='contact-input' value={message} rows="6" placeholder="Your Message" id="message" name="message" onChange={(e)=>handleChange(e)} required/>
+              <button type="button" id="submit" name="submit" className='send-button' onClick={()=>onSubmit()}>Send</button>
+            </form>
+            </div>
           </div>
-        </div>
-        <div className='card'>
-          <div className="InputContainer">
-            <input placeholder="Name"/>
-            <input placeholder="Email"/>
-            <input placeholder="Type Messages"/></div>
         </div>
       </div>
     </div>
-    {/*</div>*/}
     <Footer/>
   </>)
 }

@@ -1,0 +1,53 @@
+.panel-title > a:before {
+    float: right !important;
+    font-family: FontAwesome;
+    content:"\f068";
+    padding-right: 5px;
+}
+
+.panel-title > a.collapsed:before {
+    float: right !important;
+    content:"\f067";
+}
+.panel-title > a:hover,
+.panel-title > a:active,
+.panel-title > a:focus  {
+    text-decoration:none;
+}
+.panel-heading {
+    padding: 20px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+
+}
+.panel-group{
+    margin-bottom: 10px;
+}
+.panel {
+    margin-bottom: 20px !important;
+    border: 1px solid transparent;
+    color: #908f90;
+    background-color: rgba(54 ,53, 55, 0.5);
+}
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-color: #00bcd4;
+    text-align: center;
+    color: #fff;
+}
+.faq-question{
+    color:white;
+    cursor: pointer;
+}
+.row{
+    width: 100%;
+}
+.panel-collapse{
+    padding-left:10px;
+}
+.panel-body{
+    margin-bottom: 20px;
+}
