@@ -7,7 +7,10 @@ import Header from "./Component/Header/header";
 import AboutUs from "./Component/Footer/About";
 import Contact from "./Component/Footer/Contact";
 import Pricing from "./Component/Footer/pricing";
-import Faq from "./Component/Footer/faq"
+import Faq from "./Component/Footer/faq";
+import TermsAndCondition from "./Component/Footer/termsAndConditions";
+import PrivacyPolicy from "./Component/Footer/privacyPolicy";
+import Disclaimer from "./Component/Footer/disclaimer"
 function App() {
   return (
     <BrowserRouter>
@@ -16,8 +19,9 @@ function App() {
           <Route index element={<Blog/>}/>
           <Route path='/aboutUs' element={<AboutUs/>}  />
           <Route path='/contact' element={<Contact/>}  />
-          <Route path='/pricing' element={<Pricing />}/>
-          <Route path='/faq' element={<Faq />}/>
+          <Route path='/privacy_policy' element={<PrivacyPolicy />}/>
+          <Route path='/terms_and_conditions' element={<TermsAndCondition />}/>
+          <Route path='/disclaimer' element={<Disclaimer />}/>
         </Route>
         <Route path='*' element={<h1>404 Page not found.</h1>}/>
       </Routes>

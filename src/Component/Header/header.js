@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css"
 import {useNavigate,Outlet} from "react-router-dom";
+import Footer from "../Footer/footer";
 const Header = () =>{
   const navigate = useNavigate()
   return( <><div className="header">
@@ -10,6 +11,6 @@ const Header = () =>{
       <a onClick={()=>navigate('/contact')}>Contact</a>
       <a onClick={()=>navigate('/aboutUs')}>About</a>
     </div>
-  </div><Outlet/></>)
+  </div><Outlet/><Footer/></>)
 }
 export default Header;

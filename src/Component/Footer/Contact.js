@@ -20,7 +20,8 @@ const Contact = () => {
         <div className="about-container">
           <div className="right-col">
             <h1 className='title'>Contact Us</h1>
-            <p>Planning to visit Indonesia soon? Get insider tips on where to go, things to do and find best deals for
+            <p className='paragraph1'>Planning to visit Indonesia soon? Get insider tips on where to go,
+              things to do and <br/> find best deals for
               your next adventure.</p>
             <div className='card-form'>
             <form id="contact-form" >
@@ -37,7 +38,6 @@ const Contact = () => {
         </div>
       </div>
     </div>
-    <Footer/>
   </>)
 }
 export default Contact;

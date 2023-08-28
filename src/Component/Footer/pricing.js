@@ -144,7 +144,6 @@ const Pricing = () =>{
         <button className="cta-btn">SELECT</button>
       </div>
     </section>
-    <Footer/>
   </>);
 }
 export default Pricing;

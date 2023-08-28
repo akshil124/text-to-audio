@@ -59,6 +59,6 @@ const Faq = () =>{
           </div>
         </div>
       </div>
-  </div><Footer/></>);
+  </div></>);
 }
 export default Faq;

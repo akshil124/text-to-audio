@@ -20,16 +20,10 @@ const navigate =  useNavigate();
       <div className="footer-left">
 
         <p className="footer-links">
-          <a onClick={()=>navigate('/')}>Home</a>
-
-          {/*<a onClick={()=>navigate('/blog')}>Blog</a>*/}
-
-          <a onClick={()=>navigate('/pricing')}>Pricing</a>
-
+          <a onClick={()=>navigate('/disclaimer')}>Disclaimer</a>
+          <a onClick={()=>navigate('/privacy_policy')}>Privacy Policy</a>
+          <a onClick={()=>navigate('/terms_and_conditions')}>Terms and Conditions</a>
           <a onClick={()=>navigate('/aboutUs')}>About</a>
-
-          <a onClick={()=>navigate('/faq')}>Faq</a>
-
           <a onClick={()=>navigate('/contact')}>Contact</a>
         </p>
 

@@ -5,7 +5,7 @@ const AboutUs = () =>{
   return(<><div className='mainContainers'><div className='card'>
     <section className="about-section">
       <div className="about-container">
-        <h1 className='title'>About Us</h1>
+        <h1 className='title'>Privacy Policy</h1>
         <p className='paragraph'>Welcome to DarkSite, where the depths of design meet the elegance of darkness. Our team is composed of
           creative minds who are passionate about crafting unique and immersive web experiences that embrace the dark
           aesthetic.</p>

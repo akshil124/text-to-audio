@@ -20,7 +20,7 @@
 
 .mainContainers{
     display: flex;
-    min-height: 74.6vh
+    min-height: 74.6vh;
 }
 
 .contactContainer{
@@ -91,6 +91,11 @@ textarea {
     text-indent: 50px;
 }
 
+.paragraph1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .title{
     text-align: center;
 }
@@ -101,7 +106,7 @@ textarea {
 .contact-container {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 800px;
 }
 .send-button {
     text-transform: uppercase;
@@ -138,6 +143,8 @@ textarea {
 }
 .contact-input{
     padding: 16px 20px !important;
+    background-color: #3d3c3c;
+    margin-bottom: 10px;
 }
 
 .about-section{
