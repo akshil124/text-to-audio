@@ -182,8 +182,7 @@ const Blog = () => {
 <div className="containers">
 
   {allVoices.length ? <div className="Card">
-    <motion.div initial={{ y: -100}}
-                whileInView={{ y: 0 }}  className="CardInner">
+    <div  className="CardInner">
       <div className="container">
         <div className="Icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -197,7 +196,7 @@ const Blog = () => {
           <input placeholder="Search for your Voices Card" onChange={(e)=>{setSearch(e.target.value)}}/>
         </div>
       </div>
-    </motion.div>
+    </div>
   </div> : null}
   <div className="voices-container"> {open.show && Modal()}
       {allVoices && allVoices?.filter(ele => {
@@ -208,8 +207,8 @@ const Blog = () => {
         }
       }).map((ele, index) => (<>
           <motion.div
-            initial={{ x: index/2 ? 100 : -100}}
-            whileInView={{ x: 0 }} className="card-container">
+            initial={{ scale:0.5}}
+            whileInView={{scale: 1 }} viewport={{ once: true }} className="card-container">
                 <div className="card-front" key={index}>
                   <div onClick={() => setOpen({show: !open.show, voiceId: ele?.voice_id, name:ele?.name})}><h2 className="name">{ele?.name}</h2>
                   <div className="user-profile">

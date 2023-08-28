@@ -161,8 +161,8 @@ label{
     font-weight: bold;
 }
 .user-profile img {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     /*filter: brightness(0.7);*/
 }
@@ -205,19 +205,22 @@ label{
 .containers{
     display: flex;
     flex-direction: column;
-    height: 718px;
+    height: 100%;
     justify-content: center;
 }
 h2.name {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 25px
+    margin-bottom: 18px
 }
 .Card {
-    padding: 1px;
+    padding: 1px 45px;
     margin:0 auto;
     border-radius: 15px;
-    width: 640px;
+    width: 100%;
+    position: sticky;
+    top: 90px;
+    z-index: 1000;
 }
 @media screen and (max-width: 640px) {
     .Card{
@@ -232,7 +235,7 @@ h2.name {
 .CardInner {
     padding: 16px 16px;
     border-radius: 15px;
-    background-color: rgba(54 ,53, 55, 0.5);
+    background-color: #2c2b2d;
 }
 
 .container {
@@ -296,7 +299,7 @@ textarea {
     margin:0;
 }
 .subDetail{
-    margin: 35px 0 10px;
+    margin: 15px 0 10px;
     text-align:  center;
 }
 
@@ -429,11 +432,15 @@ body {
 
 .header {
     overflow: hidden;
-    background-color: transparent;
+    background-color: #2c2b2d;
     padding: 20px 10px;
     border-bottom: 1px solid white;
     display: flex;
     gap: 40px;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 1000;
 }
 
 /* Style the header links */
@@ -479,7 +486,6 @@ body {
 .header-right {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     gap:20px;
     /*float:right;*/
 }
@@ -690,8 +696,17 @@ body {
     .header{
         gap:20px
     }
-}
 
+}
+@media (max-width: 600px) {
+    .content-render{
+        margin-bottom: 315px !important;
+    }
+    .Card{
+        padding:0;
+        top:297px;
+    }
+}
 #loom-companion-mv3{
     display: none;
 }
