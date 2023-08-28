@@ -475,7 +475,12 @@ body {
     background-color: #ddd;
     color: black;
 }
-
+.drawer{
+    display: none;
+}
+.drawer-button{
+    background-color: white !important;
+}
 /* Style the active/current link*/
 .header a.active {
     background-color: rgba(54 ,53, 55, 0.5);
@@ -609,12 +614,16 @@ body {
     .footer-distributed .footer-left p.footer-links {
         line-height: 1.8;
     }
-    .header, .header-right{
+    .header{
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
-    .searchbar{
+    .header-right{
         display: none;
+    }
+    .drawer{
+        display: block;
     }
 }
 
@@ -699,12 +708,9 @@ body {
 
 }
 @media (max-width: 600px) {
-    .content-render{
-        margin-bottom: 315px !important;
-    }
+
     .Card{
         padding:0;
-        top:297px;
     }
 }
 #loom-companion-mv3{
