@@ -432,6 +432,8 @@ body {
     background-color: transparent;
     padding: 20px 10px;
     border-bottom: 1px solid white;
+    display: flex;
+    gap: 40px;
 }
 
 /* Style the header links */
@@ -441,15 +443,24 @@ body {
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 25px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
+.header div.logo {
     font-size: 25px;
     font-weight: bold;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Change the background color on mouse-over */
@@ -466,7 +477,11 @@ body {
 
 /* Float the link section to the right */
 .header-right {
-    float: right;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px;
+    /*float:right;*/
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -477,39 +492,57 @@ body {
         text-align: left;
     }
     .header-right {
-        float: none;
+        display: flex;
+        flex-direction: column;
     }
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-
 .footer-distributed {
     border-top: 1px solid white;
     background-color: transparent;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
-    width: 100%;
+    width: 100% !important;
     text-align: left;
     font: normal 16px sans-serif;
-    padding: 45px 50px;
+    padding: 20px 200px;
+    display: flex;
+    align-items: center;
+    font-family: Poppins, sans-serif;
 }
 
 .footer-distributed .footer-left p {
     color: #8f9296;
     font-size: 14px;
     margin: 0;
+    /*max-width: 500px;*/
 }
 /* Footer links */
 
-.footer-distributed p.footer-links {
-    font-size: 18px;
+.footer-distributed div.footer-links {
+    font-size: 15px;
     font-weight: bold;
     color: #ffffff;
     margin: 0 0 10px;
     padding: 0;
     transition: ease .25s;
 }
+.footer-nav{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
 
+}
+.footer-nav div {
+    padding:15px 0px 2px 5px;
+    border-bottom: 0.5px solid #333;
+    cursor: pointer;
+
+}
+.footer-nav div:hover{
+    text-decoration: underline;
+}
 .footer-distributed p.footer-links a {
     display: inline-block;
     line-height: 1.8;
@@ -536,7 +569,6 @@ body {
     margin-top: 6px;
     max-width: 180px;
 }
-
 .footer-distributed .footer-right a {
     display: inline-block;
     width: 35px;
@@ -567,6 +599,13 @@ body {
     }
     .footer-distributed .footer-left p.footer-links {
         line-height: 1.8;
+    }
+    .header, .header-right{
+        display: flex;
+        flex-direction: column;
+    }
+    .searchbar{
+        display: none;
     }
 }
 
@@ -574,15 +613,8 @@ body {
     display: none;
 }
 
-.footer-distributed {
-    border-top: 1px solid white;
-    background-color: transparent;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    width: 100%;
-    text-align: left;
-    font: normal 16px sans-serif;
-    padding: 45px 50px;
+.footer-left {
+    width:100%;
 }
 
 .footer-distributed .footer-left p {
@@ -648,16 +680,12 @@ body {
 
 /* Media Queries */
 
-@media (max-width: 600px) {
-    .footer-distributed .footer-left, .footer-distributed .footer-right {
-        text-align: center;
+@media (max-width: 800px) {
+    .footer-distributed{
+        padding:20px 50px;
     }
-    .footer-distributed .footer-right {
-        float: none;
-        margin: 0 auto 20px;
-    }
-    .footer-distributed .footer-left p.footer-links {
-        line-height: 1.8;
+    .header{
+        gap:20px
     }
 }
 
@@ -678,16 +706,7 @@ section {
     text-align: justify-all;
 }
 
-.footer-distributed {
-    border-top: 1px solid white;
-    background-color: transparent;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    width: 100%;
-    text-align: left;
-    font: normal 16px sans-serif;
-    padding: 45px 50px;
-}
+
 
 .footer-distributed .footer-left p {
     color: #8f9296;
@@ -754,7 +773,7 @@ section {
 
 @media (max-width: 600px) {
     .footer-distributed .footer-left, .footer-distributed .footer-right {
-        text-align: center;
+        text-align: left;
     }
     .footer-distributed .footer-right {
         float: none;
