@@ -6,7 +6,7 @@ import {motion} from "framer-motion";
 const Header = () =>{
   const navigate = useNavigate()
   return( <><div className="header">
-    <div  className="logo">Text to Speech</div>
+    <div  className="logo" onClick={()=>navigate('/')}>Text cover</div>
     <div className="header-right">
       <a onClick={()=>navigate('/')}>Home</a>
       <a onClick={()=>navigate('/contact')}>Contact</a>

@@ -534,6 +534,9 @@ body {
     max-width: 500px;
 
 }
+.footer-cover{
+    text-align: center;
+}
 .footer-nav div {
     padding:15px 0px 2px 5px;
     border-bottom: 0.5px solid #333;
