@@ -12,7 +12,7 @@ const TermsAndCondition = () =>{
         <div className="entry-content" itemProp="text">
 
           <p>Welcome to DragGAN AI Tool Blog!</p>
-          <p>These terms and conditions (“Terms”) govern your use of the DragGAN AI Tool Blog located at <a
+          <p>These terms and conditions (“Terms”) govern your use of the DragGAN AI Tool Blog located at <a className='website-url'
             href="https://text-to-audio-indol.vercel.app/">https://text-to-audio-indol.vercel.app/</a> (“Website”). By accessing or using the
             Website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must
             not use the Website.</p>

@@ -46,7 +46,7 @@ const AboutUs = () =>{
         <h2 className="wp-block-heading">Feel Free to Contact Us:</h2>
 
 
-        <p>If you have any questions or need assistance, please don’t hesitate to reach out to us at <a
+        <p>If you have any questions or need assistance, please don’t hesitate to reach out to us at <a className='help-content'
           href="mailto:help@dragganaitool.com">help@text-to-audio.com</a>. We value your feedback and are always ready
           to help you navigate the exciting world of DragGAN AI editing.</p>
 

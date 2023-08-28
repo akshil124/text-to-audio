@@ -175,7 +175,14 @@ color: white!important;
     font-size: 25px!important;
 }
 .inside-article{
-    padding: 50px;
+    padding: 0 50px;
+}
+.website-url{
+    color: cornflowerblue;
+}
+.help-content{
+    text-decoration: underline;
+    color: #908f90;
 }
 p {
     margin-bottom: 1.5em;
