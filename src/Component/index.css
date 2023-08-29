@@ -17,7 +17,7 @@ audio {
 }
 .modal {
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
@@ -75,7 +75,6 @@ input {
 }
 .modal-input{
     color:white;
-    /*background: black;*/
     background-color: #3d3c3c;
     font-size:14px;
     font-weight: normal;
@@ -102,7 +101,6 @@ input {
     opacity: 0.8;
 }
 
-/* Show the modal when active */
 .modal.active {
     display: block;
 }
@@ -115,7 +113,6 @@ input {
 }
 
 audio::-webkit-media-controls-panel {
-    /*background-color: rgb(54 ,53, 55);*/
     background-color: #3d3c3c;
     color: #908f90;
     border-radius: 10px;
@@ -127,7 +124,6 @@ audio::-webkit-media-controls-play-button{
 }
 audio::-webkit-media-controls-timeline{
     color: #312b41;
-    /*background:#312b41 ;*/
 }
 
 .audio-container{
@@ -164,7 +160,6 @@ label{
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    /*filter: brightness(0.7);*/
 }
 .user-profile{
     border-radius: 50%;
@@ -172,8 +167,6 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
-    /*outline: 5px solid hsl(0, 0%, 60%);*/
-    /*box-shadow: 0 0 0 10px hsl(0, 2.47%, 17.2%), 0 0 0 15px hsl(0, 0%, 46.49%);*/
     outline: 5px solid hsl(0, 0%, 62.24%);
     box-shadow: 0 0 0 10px hsl(0, 1.47% ,44.1%), 0 0 0 15px hsl(0, 1.7% ,30.23%);
 
@@ -303,14 +296,6 @@ textarea {
     text-align:  center;
 }
 
-body {
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*height: 100vh;*/
-    /*overflow: hidden;*/
-    /*background: linear-gradient(to bottom right, #b968c5, skyblue);*/
-}
 .audio-player {
     height: 50px;
     width: 100%;
@@ -443,7 +428,6 @@ body {
     z-index: 1000;
 }
 
-/* Style the header links */
 .header a {
     float: left;
     color: white;
@@ -456,7 +440,6 @@ body {
     cursor: pointer;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header div.logo {
     font-size: 25px;
     font-weight: bold;
@@ -470,7 +453,6 @@ body {
     cursor: pointer;
 }
 
-/* Change the background color on mouse-over */
 .header a:hover {
     background-color: #ddd;
     color: black;
@@ -481,21 +463,18 @@ body {
 .drawer-button{
     background-color: white !important;
 }
-/* Style the active/current link*/
+
 .header a.active {
     background-color: rgba(54 ,53, 55, 0.5);
     color: white;
 }
 
-/* Float the link section to the right */
 .header-right {
     display: flex;
     justify-content: flex-start;
     gap:20px;
-    /*float:right;*/
 }
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
     .header a {
         float: none;
@@ -527,9 +506,8 @@ body {
     color: #8f9296;
     font-size: 14px;
     margin: 0;
-    /*max-width: 500px;*/
 }
-/* Footer links */
+
 
 .footer-distributed div.footer-links {
     font-size: 15px;
@@ -601,8 +579,6 @@ body {
 
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
 
-/* Media Queries */
-
 @media (max-width: 600px) {
     .footer-distributed .footer-left, .footer-distributed .footer-right {
         text-align: center;
@@ -640,7 +616,6 @@ body {
     font-size: 14px;
     margin: 0;
 }
-/* Footer links */
 
 .footer-distributed p.footer-links {
     font-size: 18px;
@@ -696,7 +671,6 @@ body {
 
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
 
-/* Media Queries */
 
 @media (max-width: 800px) {
     .footer-distributed{
@@ -720,24 +694,18 @@ body {
 section {
     width: 100%;
     display: inline-block;
-    /*background: #ccc;*/
     height: 718px;
-    /*text-align: center;*/
     font-size: 22px;
     font-weight: 700;
-    /*text-decoration: underline;*/
     color: #908f90;
     text-align: justify-all;
 }
-
-
 
 .footer-distributed .footer-left p {
     color: #8f9296;
     font-size: 14px;
     margin: 0;
 }
-/* Footer links */
 
 .footer-distributed p.footer-links {
     font-size: 18px;
@@ -793,7 +761,6 @@ section {
 
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
 
-/* Media Queries */
 
 @media (max-width: 600px) {
     .footer-distributed .footer-left, .footer-distributed .footer-right {

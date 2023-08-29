@@ -20,7 +20,6 @@ const Footer = () => {
           </div>
     <p className='footer-cover'>&copy;  Text cover 2023 - All rights reserved.</p>
         </div>
-
       </div>
   </>)
 };
