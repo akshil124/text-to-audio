@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom"
 
 const Footer = () => {
   const navigate = useNavigate();
-
+  window.scrollTo(0, 0);
   return (<>
       <div className="footer-distributed">
         <div className="footer-left">
