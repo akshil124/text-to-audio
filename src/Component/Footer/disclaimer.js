@@ -41,7 +41,7 @@ const Disclaimer = () =>{
           from the use of third-party websites.</p>
         <h2 className="wp-block-heading">Linking to the DragGAN AI Tool Website: </h2>
         <p>If you wish to link to the DragGAN AI Tool website, you may do so under the following conditions:</p>
-        <ul>
+        <ul className='disclamier-list'>
           <li>You may link to our home page, publications, or other informational pages.</li>
           <li>The link must not be deceptive or falsely imply sponsorship or endorsement.</li>
           <li>The link must fit within the context of the linking party’s site.</li>
