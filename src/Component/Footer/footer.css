@@ -159,7 +159,11 @@ textarea {
         height: auto;
     }
 }
-
+@media screen and (max-width: 600px) {
+    .right-col {
+        padding: 0;
+    }
+}
 
 .entry-content h2, h3, h4, h5, h6{
 font-weight: 600;
